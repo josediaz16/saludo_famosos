@@ -1,0 +1,21 @@
+version: '3'
+services:
+  web:
+    build: .
+    command: bash -c 'bundle exec jets server --host=0.0.0.0'
+    volumes: 
+      - .:/app:delegated
+    ports:
+      - 8888:8888
+      - 3035:3035
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:11.2
+    volumes:
+      - postgres_sf:/var/lib/postgresql/data
+
+volumes:
+  postgres_sf:
+    driver: local
