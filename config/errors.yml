@@ -1,0 +1,21 @@
+en:
+  dry_validation:
+    errors:
+      rules:
+        email:
+          format?: 'must be a valid email'
+        password_confirmation:
+          confirmation: 'must be equal to password'
+
+es:
+  dry_validation:
+    errors:
+      filled?: 'no puede estar vacío'
+      min_size?: 'debe tener al menos %{num} caracteres'
+      rules:
+        email:
+          format?: 'debe ser un correo válido'
+        phone:
+          format?: 'debe ser un número válido'
+        password_confirmation:
+          confirmation: 'la contraseña debe coincidir'
