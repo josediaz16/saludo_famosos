@@ -8,6 +8,7 @@ gem "jets"
 gem "pg", "~> 1.1.3"
 
 gem "dynomite"
+gem 'dry-validation'
 
 # development and test groups are not bundled as part of the deployment
 group :development, :test do
