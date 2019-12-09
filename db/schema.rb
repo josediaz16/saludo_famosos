@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_04_210859) do
+ActiveRecord::Schema.define(version: 2019_12_09_154842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "countries", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.string "code_iso", default: "", null: false
+    t.string "currency", default: "", null: false
+    t.string "country_code", default: "", null: false
+    t.string "international_prefix", default: "", null: false
+    t.string "region", default: "", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["code_iso"], name: "index_countries_on_code_iso", unique: true
+    t.index ["name"], name: "index_countries_on_name", unique: true
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,7 +36,10 @@ ActiveRecord::Schema.define(version: 2019_12_04_210859) do
     t.string "name", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "country_id", null: false
+    t.index ["country_id"], name: "index_users_on_country_id"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "users", "countries"
 end
