@@ -9,6 +9,8 @@ gem "pg", "~> 1.1.3"
 
 gem "dynomite"
 gem 'dry-validation'
+gem 'dry-monads'
+gem 'trailblazer-operation'
 
 # development and test groups are not bundled as part of the deployment
 group :development, :test do
