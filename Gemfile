@@ -6,11 +6,14 @@ gem "jets"
 # Include pg gem if you are using ActiveRecord, remove next line
 # and config/database.yml file if you are not
 gem "pg", "~> 1.1.3"
+gem 'bcrypt', '~> 3.1.7'
 
 gem "dynomite"
-gem 'dry-validation'
 gem 'dry-monads'
-gem 'trailblazer-operation'
+gem 'dry-validation'
+gem 'dry-transaction'
+
+gem 'countries'
 
 # development and test groups are not bundled as part of the deployment
 group :development, :test do
@@ -25,4 +28,6 @@ group :test do
   gem 'rspec' # rspec test group only or we get the "irb: warn: can't alias context from irb_context warning" when starting jets console
   gem 'launchy'
   gem 'capybara'
+  gem 'factory_bot'
+  gem 'database_cleaner'
 end
