@@ -10,7 +10,7 @@ en:
       min_size?: "must not have less than %{num} caracteres"
       max_size?: "must not have more than %{num} characters"
       hash?: "can't be blank"
-      str?: "can't be blank"
+      str?: "must be a string"
       int?: "must be an integer"
       is_a_file?: "must be a file"
 
@@ -32,7 +32,7 @@ es:
       lteq?: "no puede ser mayor a %{num}"
       max_size?: "no puede tener más de %{num} carácteres"
       hash?: "no puede estar vacío"
-      str?: "no puede estar vacío"
+      str?: "debe ser texto"
       int?: "debe ser un entero"
       is_a_file?: "debe ser un archivo"
       min_size?: 'debe tener al menos %{num} caracteres'
