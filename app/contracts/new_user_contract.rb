@@ -22,7 +22,5 @@ end
 class NewUserContract < ApplicationContract
   json(NewCelebritySchema)
 
-  rule(:password_confirmation, :password) do
-    key.failure(:confirmation) if values[:password] != values[:password_confirmation]
-  end
+  rule(:password_confirmation, :password).validate(:confirmation)
 end

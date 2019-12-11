@@ -1,5 +1,5 @@
 RSpec.describe NewUserContract do
-  subject { described_class.new }
+  subject { described_class.new(object_class: :user) }
 
   let(:input) do
     {
@@ -67,7 +67,7 @@ RSpec.describe NewUserContract do
         input.merge!(password_confirmation: "mypasssss")
         expect(response).to be_failure
         expect(response.errors.to_h).to eq({
-          password_confirmation: ["la contraseña debe coincidir"]
+          password_confirmation: [{code: :confirmation, text: "la contraseña debe coincidir", input: "mypasssss"}]
         })
       end
     end
