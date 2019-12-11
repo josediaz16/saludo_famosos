@@ -1,0 +1,29 @@
+es:
+  errors:
+    messages:
+      blank: 'no puede estar vacío'
+      required: 'debe existir'
+      not_a_number: 'no es un número'
+      inclusion: 'no esta incluido en la lista'
+      taken: 'ya ha sido tomado'
+      invalid: 'el formato no es válido'
+      confirmation: 'las contraseñas no coinciden'
+  activerecord:
+    attributes:
+      user:
+        password: 'La contraseña'
+        password_confirmation: 'La confirmación'
+        reset_password_token: 'El token para reestablecer'
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: 'no puede estar vacía'
+              confirmation: 'no coincide con la confirmación'
+              too_short: 'es muy corta(minimo 6 caracteres)'
+            password_confirmation:
+              blank: 'no puede estar vacía'
+              confirmation: 'no coincide con la contraseña'
+            reset_password_token:
+              invalid: 'no es válido'

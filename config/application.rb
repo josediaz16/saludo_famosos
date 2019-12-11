@@ -62,4 +62,7 @@ Jets.application.configure do
   # config.logger = Jets::Logger.new($strerr)
 
   config.controllers.default_protect_from_forgery = false
+
+  I18n.load_path << Dir[File.expand_path("config/locales") + "/**/*.yml"]
+  I18n.default_locale = :es
 end

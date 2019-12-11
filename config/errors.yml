@@ -1,6 +1,19 @@
 en:
   dry_validation:
     errors:
+      filled?: "can't be blank"
+      key?: "can't be blank"
+      gt?: "must be greater than %{num}"
+      gteq?: "must be greater than %{num}"
+      lt?: "must be lower than %{num}"
+      lteq?: "must be lower than %{num}"
+      min_size?: "must not have less than %{num} caracteres"
+      max_size?: "must not have more than %{num} characters"
+      hash?: "can't be blank"
+      str?: "can't be blank"
+      int?: "must be an integer"
+      is_a_file?: "must be a file"
+
       rules:
         email:
           format?: 'must be a valid email'
@@ -10,8 +23,20 @@ en:
 es:
   dry_validation:
     errors:
-      filled?: 'no puede estar vacío'
+      filled?: "no puede estar vacío"
+      min_size?: "debe tener al menos %{num} caracteres"
+      key?: "no puede estar vacío"
+      gt?: "no puede ser menor a %{num}"
+      gteq?: "no puede ser menor a %{num}"
+      lt?: "no puede ser mayor a %{num}"
+      lteq?: "no puede ser mayor a %{num}"
+      max_size?: "no puede tener más de %{num} carácteres"
+      hash?: "no puede estar vacío"
+      str?: "no puede estar vacío"
+      int?: "debe ser un entero"
+      is_a_file?: "debe ser un archivo"
       min_size?: 'debe tener al menos %{num} caracteres'
+
       rules:
         email:
           format?: 'debe ser un correo válido'
