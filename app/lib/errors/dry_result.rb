@@ -19,11 +19,14 @@ module Errors
 
     def parse
       result.errors.each_with_object([]) do |message, array|
+        predicate = message.predicate || message.meta[:code]
+        value = message.input || message.meta[:input]
+
         array << new_error.(
           message.path.join("."),
-          ErrorCodes.fetch(message.predicate, message.predicate.to_s),
+          ErrorCodes.fetch(predicate, predicate.to_s),
           message.text,
-          PredicateHandlers.fetch(message.predicate, message.input)
+          PredicateHandlers.fetch(predicate, value)
         )
       end
     end
