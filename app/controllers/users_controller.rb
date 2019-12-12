@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate!, only: %i[create]
+  skip_before_action :authenticate, only: %i[create]
   # POST /users
   def create
     json_action Users::Create, user_params

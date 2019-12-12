@@ -1,7 +1,7 @@
 class ApplicationController < Jets::Controller::Base
   include Dry::Monads[:try, :maybe]
 
-  before_action :authenticate!
+  before_action :authenticate
 
   rescue_from ActionController::ParameterMissing, with: :handle_missing_params
 
@@ -21,7 +21,7 @@ class ApplicationController < Jets::Controller::Base
     )
   end
 
-  def authenticate!
+  def authenticate
     result = Users::FindCurrentUser.call request.headers['Authorization']
     if result.success?
       @current_user = result.success
