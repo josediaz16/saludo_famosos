@@ -7,6 +7,7 @@ gem "jets"
 # and config/database.yml file if you are not
 gem "pg", "~> 1.1.3"
 gem 'bcrypt', '~> 3.1.7'
+gem 'jwt'
 
 gem "dynomite"
 gem 'dry-monads'
@@ -30,4 +31,5 @@ group :test do
   gem 'capybara'
   gem 'factory_bot'
   gem 'database_cleaner'
+  gem 'faker'
 end
