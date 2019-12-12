@@ -101,7 +101,7 @@ RSpec.describe Users::Create do
           field: "password",
           code: "min_size?",
           description: "debe tener al menos 8 caracteres",
-          value: "mypass",
+          value: "",
           extra: {}
         }
       ])
@@ -119,7 +119,7 @@ RSpec.describe Users::Create do
           field: "password_confirmation",
           code: "confirmation",
           description: "la contraseña debe coincidir",
-          value: "mypassaaaa",
+          value: "",
           extra: {}
         }
       ])

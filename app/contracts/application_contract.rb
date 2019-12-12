@@ -9,7 +9,7 @@ class ApplicationContract < Dry::Validation::Contract
     field_a, field_b = keys
 
     if values[field_a] != values[field_b]
-      key.failure(text: :confirmation, code: :confirmation, input: values[field_a])
+      key.failure(text: :confirmation, code: :confirmation)
     end
   end
 end

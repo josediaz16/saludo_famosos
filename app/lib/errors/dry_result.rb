@@ -9,6 +9,8 @@ module Errors
     key?: nil
   }
 
+  BlackListedValues = /password/
+
   class DryResult
     attr_reader :result, :new_error, :object_class
 
@@ -21,13 +23,22 @@ module Errors
       result.errors.each_with_object([]) do |message, array|
         predicate = message.predicate || message.meta[:code]
         value = message.input || message.meta[:input]
+        field = message.path.join(".")
 
         array << new_error.(
-          message.path.join("."),
+          field,
           ErrorCodes.fetch(predicate, predicate.to_s),
           message.text,
-          PredicateHandlers.fetch(predicate, value)
+          PredicateHandlers.fetch(predicate, get_value(field, value))
         )
+      end
+    end
+
+    def get_value(field, value)
+      if field.match(BlackListedValues).present?
+        ""
+      else
+        value
       end
     end
 

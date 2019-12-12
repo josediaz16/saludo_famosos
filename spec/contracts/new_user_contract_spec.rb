@@ -67,7 +67,7 @@ RSpec.describe NewUserContract do
         input.merge!(password_confirmation: "mypasssss")
         expect(response).to be_failure
         expect(response.errors.to_h).to eq({
-          password_confirmation: [{code: :confirmation, text: "la contraseña debe coincidir", input: "mypasssss"}]
+          password_confirmation: [{code: :confirmation, text: "la contraseña debe coincidir"}]
         })
       end
     end
