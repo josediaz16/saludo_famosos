@@ -17,6 +17,10 @@ module Helpers
   def payload(name)
     JSON.load(IO.read("spec/fixtures/payloads/#{name}.json"))
   end
+
+  def json_response
+    JSON.parse(response.body)
+  end
 end
 
 DatabaseCleaner.allow_remote_database_url = true
