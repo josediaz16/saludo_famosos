@@ -12,4 +12,5 @@ coverage
 pkg
 tmp
 gems
+examples
 .aws

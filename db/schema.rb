@@ -28,6 +28,12 @@ ActiveRecord::Schema.define(version: 2019_12_11_215253) do
     t.index ["name"], name: "index_countries_on_name", unique: true
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "password_digest", default: "", null: false

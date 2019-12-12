@@ -1,7 +1,7 @@
 FROM ruby:2.5.7-slim
 
 RUN apt-get update && \
-    apt-get install -y build-essential libxml2 libpq-dev git curl && \
+    apt-get install -y build-essential libxml2 libpq-dev git curl rsync unzip zip && \
     rm -rf /var/lib/apt/lists/*
 
 RUN gem update bundler
