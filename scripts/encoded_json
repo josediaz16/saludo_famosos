@@ -1,0 +1,8 @@
+#!/bin/bash
+
+JSON_FILE=$1
+UPLOAD_FILE=$2
+
+ENCODED_FILE=$(base64 -w0 $UPLOAD_FILE)
+
+sed "s|__replace_base64__|${ENCODED_FILE}|g" $JSON_FILE

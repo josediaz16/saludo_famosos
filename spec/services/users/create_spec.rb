@@ -33,6 +33,26 @@ RSpec.describe Users::Create do
         expect(user.country).to   eq colombia
       end
     end
+
+    context "With photo" do
+      it "Should be success" do
+        photo = File.open("spec/fixtures/files/profile_photo.jpg", "rb")
+        input.merge!(photo: photo)
+
+        expect(response).to be_success
+        expect(User.count).to eq(1)
+
+        user = User.last
+        expect(response.success[:model]).to eq(user)
+
+        expect(user.email).to     eq input[:email]
+        expect(user.phone).to     eq input[:phone]
+        expect(user.name).to      eq input[:name]
+        expect(user.username).to  eq input[:username]
+        expect(user.country).to   eq colombia
+        expect(user.photo.exists?).to be_truthy
+      end
+    end
   end
 
   context "The email is invalid" do

@@ -14,6 +14,8 @@ gem 'dry-monads'
 gem 'dry-validation'
 gem 'dry-transaction'
 
+gem 'shrine', "~> 3.0"
+
 gem 'countries'
 
 # development and test groups are not bundled as part of the deployment

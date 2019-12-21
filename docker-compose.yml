@@ -10,6 +10,8 @@ services:
       - 3035:3035
     depends_on:
       - postgres
+    tty: true
+    stdin_open: true
 
   postgres:
     image: postgres:11.2
