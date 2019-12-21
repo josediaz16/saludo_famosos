@@ -4,7 +4,7 @@ services:
     build: .
     command: bash -c 'bundle exec jets server --host=0.0.0.0'
     volumes: 
-      - .:/app:delegated
+      - .:/app
     ports:
       - 8888:8888
       - 3035:3035

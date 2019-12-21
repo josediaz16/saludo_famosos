@@ -4,7 +4,7 @@ RUN apt-get update && \
     apt-get install -y build-essential libxml2 libpq-dev git curl rsync unzip zip && \
     rm -rf /var/lib/apt/lists/*
 
-RUN gem update bundler
+RUN gem install bundler -v 2.0.2
 
 RUN mkdir /app
 WORKDIR /app
