@@ -3,7 +3,7 @@ module Users
     include AppConfig::Transaction.new
 
     map  :find_country
-    validate contract: NewUserContract.new(object_class: :user)
+    validate contract: Contracts::Users::New.new(object_class: :user)
     save     model_class: User
 
     def find_country(input)

@@ -1,4 +1,4 @@
-RSpec.describe NewUserContract do
+RSpec.describe Contracts::Users::New do
   subject { described_class.new(object_class: :user) }
 
   let(:input) do
