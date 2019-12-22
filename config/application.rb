@@ -8,7 +8,7 @@ Jets.application.configure do
   # config.prewarm.public_ratio = 3 # default is 3
 
   # config.env_extra = 2 # can also set this with JETS_ENV_EXTRA
-  # config.autoload_paths = []
+  config.autoload_paths = ['core']
 
   # config.asset_base_url = 'https://cloudfront.domain.com/assets' # example
 

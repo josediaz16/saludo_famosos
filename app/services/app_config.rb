@@ -19,13 +19,7 @@ module AppConfig
       step :validate_contract
 
       define_method :validate_contract do |input|
-        result = contract.(input)
-
-        if result.success?
-          Dry::Monads::Success input
-        else
-          Dry::Monads::Failure attributes: input, errors: Errors::DryResult.new(result, contract.object_class).parse
-        end
+        Common::Ops::Validate.new(validator: contract).(input)
       end
     end
 
