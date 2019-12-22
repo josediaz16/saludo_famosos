@@ -21,3 +21,9 @@ ISO3166::Country.countries.each do |iso_country|
   end
 end
 puts "...finished creation of countries"
+
+puts "Creating roles..."
+Role.create!(name: 'celebrity')
+Role.create!(name: 'admin')
+Role.create!(name: 'fan')
+puts "...finished creation of roles"
