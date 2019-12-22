@@ -116,6 +116,8 @@ GEM
     dotenv (2.7.5)
     down (5.0.1)
       addressable (~> 2.5)
+    dry-auto_inject (0.6.1)
+      dry-container (>= 0.3.4)
     dry-configurable (0.9.0)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.4, >= 0.4.7)
@@ -304,6 +306,7 @@ DEPENDENCIES
   capybara
   countries
   database_cleaner
+  dry-auto_inject
   dry-monads
   dry-transaction
   dry-validation

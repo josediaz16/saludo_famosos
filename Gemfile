@@ -13,6 +13,7 @@ gem "dynomite"
 gem 'dry-monads'
 gem 'dry-validation'
 gem 'dry-transaction'
+gem 'dry-auto_inject'
 
 gem 'shrine', "~> 3.0"
 
