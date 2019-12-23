@@ -1,4 +1,4 @@
-class MyContract < ApplicationContract
+class MyContract < Contracts::ApplicationContract
   option :object_class
 
   json do
@@ -7,7 +7,7 @@ class MyContract < ApplicationContract
   end
 end
 
-class MyComplexContract < ApplicationContract
+class MyComplexContract < Contracts::ApplicationContract
   option :object_class
 
   json do
