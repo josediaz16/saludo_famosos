@@ -23,6 +23,10 @@ module AppConfig
       end
     end
 
+    def use_db_transaction
+      prepend Common::DbTransaction
+    end
+
     def save(model_class:)
       step :save
 

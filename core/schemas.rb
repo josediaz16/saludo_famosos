@@ -33,4 +33,14 @@ module Schemas
       required(:celebrity).hash(Common)
     end
   end
+
+  module Fans
+    Common = Dry::Schema.JSON do
+      required(:user_id).filled(:integer)
+    end
+
+    Full = Dry::Schema.JSON(parent: Users::Fan) do
+      required(:fan).hash(Common)
+    end
+  end
 end

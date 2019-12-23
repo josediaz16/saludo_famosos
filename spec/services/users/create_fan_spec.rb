@@ -1,4 +1,4 @@
-describe Users::CreateCelebrity do
+describe Users::CreateFan do
   let(:subject)  { described_class }
   let(:colombia) { create(:country) }
 
@@ -12,14 +12,10 @@ describe Users::CreateCelebrity do
       password_confirmation: "mypassword",
       country: colombia.code_iso,
       photo: File.open("spec/fixtures/files/profile_photo.jpg", "rb"),
-      celebrity: {
-        price: 100,
-        biography: "damn!"
-      }
     }
   end
 
-  let!(:celebrity_role) { create(:role, name: "celebrity") }
+  let!(:fan_role) { create(:role, name: "fan") }
 
   let(:response) { subject.(input) }
 
@@ -30,7 +26,7 @@ describe Users::CreateCelebrity do
       expect(User.count).to eq(1)
 
       user = User.last
-      celebrity = Celebrity.last
+      fan = Fan.last
       expect(response.success[:model]).to eq(user)
 
       expect(user.email).to     eq input[:email]
@@ -40,11 +36,10 @@ describe Users::CreateCelebrity do
       expect(user.country).to   eq colombia
 
       expect(user.roles.count).to eq(1)
-      expect(user.roles.pluck(:name)).to eq ["celebrity"]
+      expect(user.roles.pluck(:name)).to eq ["fan"]
 
       expect(user.photo.exists?).to be_truthy
-      expect(Celebrity.count).to eq(1)
-      expect(celebrity.price).to eq(100)
+      expect(Fan.count).to eq(1)
     end
   end
 
@@ -82,25 +77,6 @@ describe Users::CreateCelebrity do
           extra: {}
         }
       ])
-    end
-  end
-
-  context "The celebrity info is missing" do
-    it "should be failure" do
-      input.merge!(celebrity: nil)
-      expect(response).to be_failure
-
-      expect(response.failure[:errors]).to match_array([
-        {
-          object_class: "celebrity",
-          field: "price",
-          code: "blank",
-          description: "no puede estar vacío",
-          value: nil,
-          extra: {}
-        }
-      ])
-      expect(User.count).to eq(0)
     end
   end
 
