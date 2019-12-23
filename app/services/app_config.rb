@@ -27,7 +27,7 @@ module AppConfig
       step :save
 
       define_method :save do |input|
-        model = model_class.new(input)
+        model = model_class.new(input[:attributes])
         if model.save
           Success input.merge(model: model)
         else

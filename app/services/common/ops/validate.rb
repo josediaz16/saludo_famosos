@@ -10,7 +10,7 @@ module Common
         result = validator.(input)
 
         if result.success?
-          Success input
+          Success input.merge(attributes: result.values.data)
         else
           Failure attributes: input, errors: Errors::DryResult.new(result, validator.object_class).parse
         end

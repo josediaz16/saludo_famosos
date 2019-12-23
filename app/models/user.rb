@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_secure_password
 
   belongs_to :country
+  has_many :user_roles
+  has_many :roles, through: :user_roles
 
   validates :email, uniqueness: true
 end

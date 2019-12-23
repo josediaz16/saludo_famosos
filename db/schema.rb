@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_22_000502) do
+ActiveRecord::Schema.define(version: 2019_12_22_022151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "celebrities", force: :cascade do |t|
+    t.text "biography", default: "", null: false
+    t.decimal "price", precision: 10, scale: 2, default: "0.0", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_celebrities_on_user_id"
+  end
 
   create_table "countries", force: :cascade do |t|
     t.string "name", default: "", null: false
@@ -53,6 +62,7 @@ ActiveRecord::Schema.define(version: 2019_12_22_000502) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "celebrities", "users"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"
   add_foreign_key "users", "countries"
