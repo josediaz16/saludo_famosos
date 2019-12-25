@@ -17,6 +17,7 @@ gem 'dry-auto_inject'
 
 gem 'shrine', "~> 3.0"
 gem 'statesman'
+gem 'fast_jsonapi'
 
 gem 'countries'
 
@@ -27,6 +28,7 @@ group :development, :test do
   gem 'shotgun'
   gem 'rack'
   gem 'puma'
+  gem 'rspec_api_documentation'
 end
 
 group :test do

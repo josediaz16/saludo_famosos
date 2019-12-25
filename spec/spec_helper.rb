@@ -21,6 +21,10 @@ module Helpers
   def json_response
     JSON.parse(response.body)
   end
+
+  def json_body_response
+    JSON.parse(response_body).deep_symbolize_keys
+  end
 end
 
 DatabaseCleaner.allow_remote_database_url = true
@@ -38,4 +42,10 @@ RSpec.configure do |c|
   c.around(:each) do |example|
     DatabaseCleaner.cleaning(&example)
   end
+end
+
+RspecApiDocumentation.configure do |config|
+  config.format = :open_api
+  config.app = Jets.application
+  config.request_body_formatter = :json
 end
