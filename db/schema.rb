@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_23_220458) do
+ActiveRecord::Schema.define(version: 2019_12_23_225704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,20 @@ ActiveRecord::Schema.define(version: 2019_12_23_220458) do
     t.index ["user_id"], name: "index_fans_on_user_id"
   end
 
+  create_table "message_requests", force: :cascade do |t|
+    t.text "brief", default: "", null: false
+    t.string "to", default: "", null: false
+    t.string "from", default: "", null: false
+    t.string "phone_to", default: "", null: false
+    t.string "recipient_type", default: "", null: false
+    t.string "reference_code", default: "", null: false
+    t.string "status", default: "pending", null: false
+    t.bigint "celebrity_id"
+    t.bigint "fan_id"
+    t.index ["celebrity_id"], name: "index_message_requests_on_celebrity_id"
+    t.index ["fan_id"], name: "index_message_requests_on_fan_id"
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -71,6 +85,8 @@ ActiveRecord::Schema.define(version: 2019_12_23_220458) do
 
   add_foreign_key "celebrities", "users"
   add_foreign_key "fans", "users"
+  add_foreign_key "message_requests", "celebrities"
+  add_foreign_key "message_requests", "fans"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "users"
   add_foreign_key "users", "countries"
