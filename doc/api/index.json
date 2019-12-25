@@ -1,0 +1,24 @@
+{
+  "resources": [
+    {
+      "name": "Users",
+      "explanation": "Users resource",
+      "examples": [
+        {
+          "description": "Should return 422",
+          "link": "users/should_return_422.json",
+          "groups": "all",
+          "route": "/users",
+          "method": "post"
+        },
+        {
+          "description": "Sign up a Celebrity",
+          "link": "users/sign_up_a_celebrity.json",
+          "groups": "all",
+          "route": "/users",
+          "method": "post"
+        }
+      ]
+    }
+  ]
+}

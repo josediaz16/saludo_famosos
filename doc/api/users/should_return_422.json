@@ -1,0 +1,131 @@
+{
+  "resource": "Users",
+  "resource_explanation": "Users resource",
+  "http_method": "POST",
+  "route": "/users",
+  "description": "Should return 422",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "user",
+      "with_example": true,
+      "required": true,
+      "name": "email",
+      "description": "The user email"
+    },
+    {
+      "scope": "user",
+      "with_example": true,
+      "name": "phone",
+      "description": "The user phone number"
+    },
+    {
+      "scope": "user",
+      "with_example": true,
+      "name": "name",
+      "description": "The user full name"
+    },
+    {
+      "scope": "user",
+      "with_example": true,
+      "required": true,
+      "name": "username",
+      "description": "The user celebrity name"
+    },
+    {
+      "scope": "user",
+      "with_example": true,
+      "required": true,
+      "name": "password",
+      "description": "The user password"
+    },
+    {
+      "scope": "user",
+      "with_example": true,
+      "required": true,
+      "name": "password_confirmation",
+      "description": "The user password"
+    },
+    {
+      "scope": "user",
+      "with_example": true,
+      "name": "country",
+      "description": "The code iso of the country of the user"
+    },
+    {
+      "scope": "user",
+      "with_example": true,
+      "required": true,
+      "name": "role",
+      "description": "The role of the user to be created"
+    }
+  ],
+  "response_fields": [
+    {
+      "scope": "data",
+      "name": "id",
+      "description": "User Id"
+    },
+    {
+      "scope": "data",
+      "name": "name",
+      "description": "The user full name"
+    },
+    {
+      "scope": "data",
+      "name": "username",
+      "description": "The user celebrity name"
+    },
+    {
+      "scope": "data",
+      "name": "email",
+      "description": "The user email address"
+    },
+    {
+      "scope": "data",
+      "name": "phone",
+      "description": "The user phone number"
+    },
+    {
+      "scope": "data",
+      "name": "country",
+      "description": "The code iso of the country of the user"
+    },
+    {
+      "scope": [
+        "data",
+        "relationships",
+        "roles",
+        "data"
+      ],
+      "name": "id",
+      "description": "The role id"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/users",
+      "request_body": "{\"user\":{\"email\":\"wrong\"}}",
+      "request_headers": {
+        "Content-Type": "application/json",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 422,
+      "response_status_text": "Unprocessable Entity",
+      "response_body": "{\n  \"errors\": [\n    {\n      \"object_class\": \"user\",\n      \"field\": \"email\",\n      \"code\": \"format?\",\n      \"description\": \"debe ser un correo válido\",\n      \"value\": \"wrong\",\n      \"extra\": {\n      }\n    },\n    {\n      \"object_class\": \"user\",\n      \"field\": \"password\",\n      \"code\": \"blank\",\n      \"description\": \"no puede estar vacío\",\n      \"value\": null,\n      \"extra\": {\n      }\n    },\n    {\n      \"object_class\": \"user\",\n      \"field\": \"password_confirmation\",\n      \"code\": \"blank\",\n      \"description\": \"no puede estar vacío\",\n      \"value\": null,\n      \"extra\": {\n      }\n    },\n    {\n      \"object_class\": \"user\",\n      \"field\": \"country_id\",\n      \"code\": \"int?\",\n      \"description\": \"debe ser un entero\",\n      \"value\": null,\n      \"extra\": {\n      }\n    },\n    {\n      \"object_class\": \"user\",\n      \"field\": \"username\",\n      \"code\": \"blank\",\n      \"description\": \"no puede estar vacío\",\n      \"value\": null,\n      \"extra\": {\n      }\n    }\n  ]\n}",
+      "response_headers": {
+        "Content-Type": "application/json",
+        "x-jets-base64": "no",
+        "X-Runtime": "0.006125",
+        "Content-Length": "630"
+      },
+      "response_content_type": "application/json",
+      "curl": null
+    }
+  ]
+}

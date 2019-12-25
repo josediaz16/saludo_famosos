@@ -1,0 +1,356 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "OpenAPI Specification",
+    "description": "This is a sample server Petstore server.",
+    "termsOfService": "http://open-api.io/terms/",
+    "contact": {
+      "name": "API Support",
+      "url": "http://www.open-api.io/support",
+      "email": "support@open-api.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json",
+    "application/xml"
+  ],
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "paths": {
+    "/users": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "",
+            "required": false,
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "user": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string",
+                      "example": "new@user.com",
+                      "description": "The user email"
+                    },
+                    "phone": {
+                      "type": "string",
+                      "example": "3212345678",
+                      "description": "The user phone number"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "New User",
+                      "description": "The user full name"
+                    },
+                    "username": {
+                      "type": "string",
+                      "example": "therossatron",
+                      "description": "The user celebrity name"
+                    },
+                    "password": {
+                      "type": "string",
+                      "example": "mypassword",
+                      "description": "The user password"
+                    },
+                    "password_confirmation": {
+                      "type": "string",
+                      "example": "mypassword",
+                      "description": "The user password"
+                    },
+                    "country": {
+                      "type": "string",
+                      "example": "CO",
+                      "description": "The code iso of the country of the user"
+                    },
+                    "role": {
+                      "type": "string",
+                      "example": "#<Role:0x00005647146d15d0>",
+                      "description": "The role of the user to be created"
+                    }
+                  },
+                  "required": [
+                    "email"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sign up a Celebrity",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "User Id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "The user full name"
+                    },
+                    "username": {
+                      "type": "string",
+                      "description": "The user celebrity name"
+                    },
+                    "email": {
+                      "type": "string",
+                      "description": "The user email address"
+                    },
+                    "phone": {
+                      "type": "string",
+                      "description": "The user phone number"
+                    },
+                    "country": {
+                      "type": "string",
+                      "description": "The code iso of the country of the user"
+                    },
+                    "relationships": {
+                      "type": "object",
+                      "properties": {
+                        "roles": {
+                          "type": "object",
+                          "properties": {
+                            "data": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "description": "The role id"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Content-Type": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "application/json"
+              },
+              "x-jets-base64": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "no"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.242536"
+              },
+              "Content-Length": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "213"
+              }
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": "1",
+                  "type": "user",
+                  "attributes": {
+                    "email": "new@user.com",
+                    "name": "New User",
+                    "username": "therossatron",
+                    "phone": "3212345678",
+                    "country": "CO"
+                  },
+                  "relationships": {
+                    "roles": {
+                      "data": [
+                        {
+                          "id": "1",
+                          "type": "role"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Should return 422",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "User Id"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "The user full name"
+                    },
+                    "username": {
+                      "type": "string",
+                      "description": "The user celebrity name"
+                    },
+                    "email": {
+                      "type": "string",
+                      "description": "The user email address"
+                    },
+                    "phone": {
+                      "type": "string",
+                      "description": "The user phone number"
+                    },
+                    "country": {
+                      "type": "string",
+                      "description": "The code iso of the country of the user"
+                    },
+                    "relationships": {
+                      "type": "object",
+                      "properties": {
+                        "roles": {
+                          "type": "object",
+                          "properties": {
+                            "data": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "description": "The role id"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Content-Type": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "application/json"
+              },
+              "x-jets-base64": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "no"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.006556"
+              },
+              "Content-Length": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "630"
+              }
+            },
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "object_class": "user",
+                    "field": "email",
+                    "code": "format?",
+                    "description": "debe ser un correo válido",
+                    "value": "wrong",
+                    "extra": {
+                    }
+                  },
+                  {
+                    "object_class": "user",
+                    "field": "password",
+                    "code": "blank",
+                    "description": "no puede estar vacío",
+                    "value": null,
+                    "extra": {
+                    }
+                  },
+                  {
+                    "object_class": "user",
+                    "field": "password_confirmation",
+                    "code": "blank",
+                    "description": "no puede estar vacío",
+                    "value": null,
+                    "extra": {
+                    }
+                  },
+                  {
+                    "object_class": "user",
+                    "field": "country_id",
+                    "code": "int?",
+                    "description": "debe ser un entero",
+                    "value": null,
+                    "extra": {
+                    }
+                  },
+                  {
+                    "object_class": "user",
+                    "field": "username",
+                    "code": "blank",
+                    "description": "no puede estar vacío",
+                    "value": null,
+                    "extra": {
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Users",
+      "description": "Users resource"
+    }
+  ]
+}
