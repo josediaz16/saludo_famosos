@@ -8,12 +8,12 @@ class MessageRequest < ApplicationRecord
   belongs_to :fan, optional: true
   has_one    :payment
 
-  has_many   :mr_transitions, autosave: false, class_name: "MRTransition"
+  has_many   :mr_transitions, autosave: false, class_name: "MrTransition"
 
   delegate :can_transition_to?, :transition_to!, :transition_to, :last_transition, :current_state, :in_state?, to: :state_machine
 
   def state_machine
-    @state_machine ||= MRStateMachine.new(self, transition_class: MRTransition)
+    @state_machine ||= MrStateMachine.new(self, transition_class: MrTransition)
   end
 
   def self.ordered_by_relevance
