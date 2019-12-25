@@ -16,6 +16,7 @@ gem 'dry-transaction'
 gem 'dry-auto_inject'
 
 gem 'shrine', "~> 3.0"
+gem 'statesman'
 
 gem 'countries'
 
