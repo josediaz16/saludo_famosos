@@ -29,6 +29,141 @@
     "application/xml"
   ],
   "paths": {
+    "/sessions": {
+      "post": {
+        "tags": [
+          "Sessions"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "formData",
+            "description": "The user email\nEg, `new@user.com`",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "description": "The user password\nEg, `abcd1234`",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Should return 200",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "token": {
+                  "type": "string",
+                  "description": "The authenticated user token, valid to use in future requests in Authorization header"
+                },
+                "exp": {
+                  "type": "string",
+                  "description": "The time in seconds the token will be valid"
+                },
+                "username": {
+                  "type": "string",
+                  "description": "The user celebrity name"
+                }
+              }
+            },
+            "headers": {
+              "Content-Type": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "application/json"
+              },
+              "x-jets-base64": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "no"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.194525"
+              },
+              "Content-Length": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "156"
+              }
+            },
+            "examples": {
+              "application/json": {
+                "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1NzczOTk0NTF9.O-PEsOGTP4q7bmYd8nBB48jP1mfZb4Bu9zMseDk7aWs",
+                "exp": "12-26-2019 22:30",
+                "username": ""
+              }
+            }
+          },
+          "401": {
+            "description": "Should return 401",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+                "token": {
+                  "type": "string",
+                  "description": "The authenticated user token, valid to use in future requests in Authorization header"
+                },
+                "exp": {
+                  "type": "string",
+                  "description": "The time in seconds the token will be valid"
+                },
+                "username": {
+                  "type": "string",
+                  "description": "The user celebrity name"
+                }
+              }
+            },
+            "headers": {
+              "Content-Type": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "application/json"
+              },
+              "x-jets-base64": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "no"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.196130"
+              },
+              "Content-Length": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "24"
+              }
+            },
+            "examples": {
+              "application/json": {
+                "error": "Unauthorized"
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+
+        ]
+      }
+    },
     "/users": {
       "post": {
         "tags": [
@@ -92,7 +227,7 @@
                     },
                     "role": {
                       "type": "string",
-                      "example": "#<Role:0x00005647146d15d0>",
+                      "example": "#<Role:0x000055aeab192c10>",
                       "description": "The role of the user to be created"
                     }
                   },
@@ -175,7 +310,7 @@
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.242536"
+                "x-example-value": "0.226500"
               },
               "Content-Length": {
                 "description": "",
@@ -186,7 +321,7 @@
             "examples": {
               "application/json": {
                 "data": {
-                  "id": "1",
+                  "id": "3",
                   "type": "user",
                   "attributes": {
                     "email": "new@user.com",
@@ -279,7 +414,7 @@
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.006556"
+                "x-example-value": "0.006122"
               },
               "Content-Length": {
                 "description": "",
@@ -348,6 +483,10 @@
     }
   },
   "tags": [
+    {
+      "name": "Sessions",
+      "description": "Sessions resource"
+    },
     {
       "name": "Users",
       "description": "Users resource"
