@@ -13,10 +13,20 @@ en:
       str?: "must be a string"
       int?: "must be an integer"
       is_a_file?: "must be a file"
+      included_in?:
+        arg:
+          default: "must be one of: %{list}"
+      size?:
+        arg:
+          range: "must have between %{size_left} and %{size_right} chars"
 
       rules:
         email:
           format?: 'must be a valid email'
+        phone:
+          format?: 'must be a valid number'
+        phone_to:
+          format?: 'must be a valid number'
         password_confirmation:
           confirmation: 'must be equal to password'
 
@@ -36,11 +46,19 @@ es:
       int?: "debe ser un entero"
       is_a_file?: "debe ser un archivo"
       min_size?: 'debe tener al menos %{num} caracteres'
+      size?:
+        arg:
+          range: "debe tener entre %{size_left} y %{size_right} caracteres"
+      included_in?:
+        arg:
+          default: "debe ser alguna de estas opciones: %{list}"
 
       rules:
         email:
           format?: 'debe ser un correo válido'
         phone:
+          format?: 'debe ser un número válido'
+        phone_to:
           format?: 'debe ser un número válido'
         password_confirmation:
           confirmation: 'la contraseña debe coincidir'

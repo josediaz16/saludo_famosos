@@ -43,4 +43,19 @@ module Schemas
       required(:fan).hash(Common)
     end
   end
+
+  module MessageRequests
+    ValidRecipientTypes = %w[me someone_else]
+
+    Common = Dry::Schema.JSON do
+      required(:phone_to).value(Types::Phone, format?: Types::PHONE_FORMAT)
+      required(:to).filled(:string)
+      required(:brief).filled(:string, size?: 20..700)
+      required(:reference_code).filled(:string)
+      required(:celebrity_id).filled(:integer)
+      required(:recipient_type).filled(:string, included_in?: ValidRecipientTypes)
+      optional(:fan_id).filled(:integer)
+      optional(:from).value(:string)
+    end
+  end
 end
