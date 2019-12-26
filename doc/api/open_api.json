@@ -29,6 +29,288 @@
     "application/xml"
   ],
   "paths": {
+    "/celebrities": {
+      "get": {
+        "tags": [
+          "Celebrities"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "200": {
+            "description": "Should return the first 4 results",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "headers": {
+              "Content-Type": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "application/json"
+              },
+              "x-jets-base64": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "no"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.025885"
+              },
+              "Content-Length": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "1817"
+              }
+            },
+            "examples": {
+              "application/json": {
+                "results": [
+                  {
+                    "_score": 1.0,
+                    "name": "Juan Esteban Aristizabal",
+                    "username": "Juanes",
+                    "biography": "cantante, compositor y músico colombiano de pop latino y rock en español que fusiona diversos ritmos musicales. También fue reconocido con varios Premios Grammy Latinos a lo largo de su carrera por exitosos álbumes como Mi sangre (2004).",
+                    "price": 10.0,
+                    "country": "Colombia",
+                    "code_iso": "CO",
+                    "photo_url": null,
+                    "created_at": "2019-12-26T23:40:06.862Z",
+                    "id": "11",
+                    "detail_path": "/celebrities/11"
+                  },
+                  {
+                    "_score": 1.0,
+                    "name": "Shakira Isabel Mebarak",
+                    "username": "Shakira",
+                    "biography": "cantautora, productora discográfica, bailarina, modelo, instrumentista, empresaria, actriz, embajadora de buena voluntad de la UNICEF, filántropa colombiana. Ha sido nombrada varias veces por Sony y Billboard con el sobrenombre de La Reina del Pop Latino.",
+                    "price": 15.0,
+                    "country": "Colombia",
+                    "code_iso": "CO",
+                    "photo_url": null,
+                    "created_at": "2019-12-26T23:40:07.038Z",
+                    "id": "12",
+                    "detail_path": "/celebrities/12"
+                  },
+                  {
+                    "_score": 1.0,
+                    "name": "Lina Tejeiro",
+                    "username": "Lina Tejeiro",
+                    "biography": "es una actriz colombiana, reconocida por actuar durante cinco años en la serie televisiva Padres e hijos en el papel de Sammy.",
+                    "price": 5.0,
+                    "country": "Colombia",
+                    "code_iso": "CO",
+                    "photo_url": null,
+                    "created_at": "2019-12-26T23:40:07.215Z",
+                    "id": "13",
+                    "detail_path": "/celebrities/13"
+                  },
+                  {
+                    "_score": 1.0,
+                    "name": "Alejandro fernandez",
+                    "username": "Alejandro Fernandez",
+                    "biography": "es un cantante mexicano de música ranchera, hijo del también cantante ranchero Vicente Fernández. En un principio se especializó en formas tradicionales de música regional mexicana1 como ranchera y mariachi. ",
+                    "price": 8.0,
+                    "country": "Mexico",
+                    "code_iso": "MX",
+                    "photo_url": null,
+                    "created_at": "2019-12-26T23:40:07.396Z",
+                    "id": "14",
+                    "detail_path": "/celebrities/14"
+                  }
+                ],
+                "pages": 2,
+                "total": 5,
+                "suggestions": [
+
+                ]
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+
+        ]
+      }
+    },
+    "/message_requests": {
+      "post": {
+        "tags": [
+          "Message Requests"
+        ],
+        "summary": "",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "200": {
+            "description": "Creates a message request",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "headers": {
+              "Content-Type": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "application/json"
+              },
+              "x-jets-base64": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "no"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.035803"
+              },
+              "Content-Length": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "405"
+              }
+            },
+            "examples": {
+              "application/json": {
+                "data": {
+                  "id": "1",
+                  "type": "message_request",
+                  "attributes": {
+                    "brief": "Quiero que le digan a juanito que es un imbecil!",
+                    "from": "Pepito",
+                    "to": "Juanito",
+                    "phone_to": "3213456543",
+                    "recipient_type": "someone_else",
+                    "solucionis_notitia": {
+                      "signature": "ebcf784d8acd4314a8abc1262cfa8824",
+                      "reference_code": "0f58d5a5515f1a8a9d179aa58858b67b2f8a3388"
+                    }
+                  },
+                  "relationships": {
+                    "celebrity": {
+                      "data": {
+                        "id": "21",
+                        "type": "celebrity"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Returns 422 with errors",
+            "schema": {
+              "description": "",
+              "type": "object",
+              "properties": {
+              }
+            },
+            "headers": {
+              "Content-Type": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "application/json"
+              },
+              "x-jets-base64": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "no"
+              },
+              "X-Runtime": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "0.005256"
+              },
+              "Content-Length": {
+                "description": "",
+                "type": "string",
+                "x-example-value": "668"
+              }
+            },
+            "examples": {
+              "application/json": {
+                "errors": [
+                  {
+                    "object_class": "message_request",
+                    "field": "phone_to",
+                    "code": "blank",
+                    "description": "no puede estar vacío",
+                    "value": null,
+                    "extra": {
+                    }
+                  },
+                  {
+                    "object_class": "message_request",
+                    "field": "to",
+                    "code": "blank",
+                    "description": "no puede estar vacío",
+                    "value": null,
+                    "extra": {
+                    }
+                  },
+                  {
+                    "object_class": "message_request",
+                    "field": "brief",
+                    "code": "blank",
+                    "description": "no puede estar vacío",
+                    "value": null,
+                    "extra": {
+                    }
+                  },
+                  {
+                    "object_class": "message_request",
+                    "field": "celebrity_id",
+                    "code": "blank",
+                    "description": "no puede estar vacío",
+                    "value": null,
+                    "extra": {
+                    }
+                  },
+                  {
+                    "object_class": "message_request",
+                    "field": "recipient_type",
+                    "code": "blank",
+                    "description": "no puede estar vacío",
+                    "value": null,
+                    "extra": {
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+
+        ]
+      }
+    },
     "/sessions": {
       "post": {
         "tags": [
@@ -93,18 +375,18 @@
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.194525"
+                "x-example-value": "0.173962"
               },
               "Content-Length": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "156"
+                "x-example-value": "158"
               }
             },
             "examples": {
               "application/json": {
-                "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1NzczOTk0NTF9.O-PEsOGTP4q7bmYd8nBB48jP1mfZb4Bu9zMseDk7aWs",
-                "exp": "12-26-2019 22:30",
+                "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyNCwiZXhwIjoxNTc3NDkwNzkyfQ.P0_2rV4Am6O8WTgvaGlvC0ozCyl04kVPCPR4ocZCiBo",
+                "exp": "12-27-2019 23:53",
                 "username": ""
               }
             }
@@ -143,7 +425,7 @@
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.196130"
+                "x-example-value": "0.173752"
               },
               "Content-Length": {
                 "description": "",
@@ -227,7 +509,7 @@
                     },
                     "role": {
                       "type": "string",
-                      "example": "#<Role:0x000055aeab192c10>",
+                      "example": "#<Role:0x000055cfbde46a78>",
                       "description": "The role of the user to be created"
                     }
                   },
@@ -310,18 +592,18 @@
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.226500"
+                "x-example-value": "0.199948"
               },
               "Content-Length": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "213"
+                "x-example-value": "214"
               }
             },
             "examples": {
               "application/json": {
                 "data": {
-                  "id": "3",
+                  "id": "26",
                   "type": "user",
                   "attributes": {
                     "email": "new@user.com",
@@ -334,7 +616,7 @@
                     "roles": {
                       "data": [
                         {
-                          "id": "1",
+                          "id": "8",
                           "type": "role"
                         }
                       ]
@@ -414,7 +696,7 @@
               "X-Runtime": {
                 "description": "",
                 "type": "string",
-                "x-example-value": "0.006122"
+                "x-example-value": "0.006396"
               },
               "Content-Length": {
                 "description": "",
@@ -482,7 +764,21 @@
       }
     }
   },
+  "securityDefinitions": {
+    "Authorization": {
+      "type": "basic",
+      "description": ""
+    }
+  },
   "tags": [
+    {
+      "name": "Celebrities",
+      "description": "Celebrities resource"
+    },
+    {
+      "name": "Message Requests",
+      "description": "Message Requests resource"
+    },
     {
       "name": "Sessions",
       "description": "Sessions resource"
