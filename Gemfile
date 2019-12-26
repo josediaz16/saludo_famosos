@@ -6,10 +6,12 @@ gem "jets"
 # Include pg gem if you are using ActiveRecord, remove next line
 # and config/database.yml file if you are not
 gem "pg", "~> 1.1.3"
+gem 'searchkick'
+gem "dynomite"
+
 gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
 
-gem "dynomite"
 gem 'dry-monads'
 gem 'dry-validation'
 gem 'dry-transaction'
