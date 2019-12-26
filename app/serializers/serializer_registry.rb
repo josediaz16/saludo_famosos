@@ -3,6 +3,7 @@ class SerializerRegistry
     extend Dry::Container::Mixin
 
     register(User, UserSerializer)
+    register(MessageRequest, MessageRequestSerializer)
   end
 
   def self.render_json(model)

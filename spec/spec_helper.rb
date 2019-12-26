@@ -25,6 +25,10 @@ module Helpers
   def json_body_response
     JSON.parse(response_body).deep_symbolize_keys
   end
+
+  def get_auth_token(user_id)
+    JsonWebToken.encode(user_id: user_id)
+  end
 end
 
 DatabaseCleaner.allow_remote_database_url = true

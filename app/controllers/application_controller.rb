@@ -1,5 +1,5 @@
 class ApplicationController < Jets::Controller::Base
-  include Dry::Monads[:try, :maybe]
+  include Authentication
 
   before_action :authenticate
 
@@ -25,12 +25,4 @@ class ApplicationController < Jets::Controller::Base
     SerializerRegistry.render_json(result[:model])
   end
 
-  def authenticate
-    result = Users::FindCurrentUser.call request.headers['Authorization']
-    if result.success?
-      @current_user = result.success
-    else
-      render json: { errors: result.failure }, status: :unauthorized
-    end
-  end
 end
