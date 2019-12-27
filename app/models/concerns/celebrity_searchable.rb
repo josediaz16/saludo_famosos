@@ -22,8 +22,8 @@ module CelebritySearchable
         code_iso: user.country.code_iso,
         photo_url: Maybe(user.photo).bind(&:url).value_or(nil),
         created_at: created_at,
-        #photo_position: photo_position
-        #handle: handle,
+        photo_position: photo_position,
+        handle: handle,
       }
     end
   end
