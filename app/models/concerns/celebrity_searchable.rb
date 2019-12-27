@@ -20,7 +20,7 @@ module CelebritySearchable
         price: price,
         country: user.country.name,
         code_iso: user.country.code_iso,
-        photo_url: Maybe(user.photo).bind(&:url).value_or(nil),
+        photo_url: Maybe(user.photo).fmap(&:url).value_or(nil),
         created_at: created_at,
         photo_position: photo_position,
         handle: handle,

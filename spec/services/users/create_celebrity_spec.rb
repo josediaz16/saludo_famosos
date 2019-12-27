@@ -23,6 +23,8 @@ describe Users::CreateCelebrity do
 
   let(:response) { subject.(input) }
 
+  before { Celebrity.reindex }
+
   context "All the fields are valid" do
     it "Should be success" do
 
@@ -45,6 +47,9 @@ describe Users::CreateCelebrity do
       expect(user.photo.exists?).to be_truthy
       expect(Celebrity.count).to eq(1)
       expect(celebrity.price).to eq(100)
+
+      sleep 1
+      expect(Celebrity.searchkick_index.total_docs).to eq(1)
     end
   end
 

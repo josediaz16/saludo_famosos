@@ -7,8 +7,10 @@ resource 'Celebrities' do
 
   header 'Content-Type', 'application/json'
 
+
   get '/celebrities' do
     include_context 'Search Celebrities'
+    before { Celebrity.reindex }
 
     context 'Search without filter' do
       let(:params) { {query: "*"} }
