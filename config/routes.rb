@@ -3,6 +3,7 @@ Jets.application.routes.draw do
   resources :sessions, only: [:create]
   resources :message_requests, only: [:create]
   resources :celebrities, only: [:index, :show]
+  resources :payments, only: [:create]
   root "jets/public#show"
 
   # The jets/public#show controller can serve static utf8 content out of the public folder.
