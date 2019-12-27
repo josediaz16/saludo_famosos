@@ -1,6 +1,10 @@
 class CelebritiesController < ApplicationController
   skip_before_action :authenticate, only: [:index]
 
+  def show
+    render json: {needs: 'implementation'}, status: 200
+  end
+
   def index
     render json: search_celebrities
   end
