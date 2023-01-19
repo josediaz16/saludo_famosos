@@ -104,7 +104,7 @@ GEM
       memoist
       rainbow
     cfnresponse (0.4.0)
-    concurrent-ruby (1.1.5)
+    concurrent-ruby (1.1.10)
     content_disposition (1.0.0)
     countries (3.0.0)
       i18n_data (~> 0.8.0)
@@ -192,10 +192,10 @@ GEM
     fast_jsonapi (1.5)
       activesupport (>= 4.2)
     gems (1.2.0)
-    globalid (0.4.2)
-      activesupport (>= 4.2.0)
+    globalid (1.0.1)
+      activesupport (>= 5.0)
     hashie (4.0.0)
-    i18n (1.7.0)
+    i18n (1.7.1)
       concurrent-ruby (~> 1.0)
     i18n_data (0.8.0)
     jets (2.3.7)
@@ -254,7 +254,7 @@ GEM
     mimemagic (0.3.3)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
-    minitest (5.13.0)
+    minitest (5.17.0)
     multi_json (1.14.1)
     multipart-post (2.1.1)
     mustache (1.1.1)
@@ -315,12 +315,12 @@ GEM
     thor (0.20.3)
     thread_safe (0.3.6)
     timecop (0.9.1)
-    tzinfo (1.2.5)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     unicode_utils (1.4.0)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.2.2)
+    zeitwerk (2.6.6)
 
 PLATFORMS
   ruby
